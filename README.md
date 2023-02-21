@@ -1,7 +1,9 @@
 # carousel
 
-<img src="[https://i.stack.imgur.com/RJj4x.png](https://github.com/xmaddev/carousel/blob/0d29b0f24b4a11f3484a1850203480256e8cd4c9/carousel.png)"
-     style="display:block;float:none;margin-left:auto;margin-right:auto;width:60%">
+
+     <p align="center">
+    <img src="https://github.com/xmaddev/carousel/blob/0d29b0f24b4a11f3484a1850203480256e8cd4c9/carousel.png" alt="Image" width="800" height="600" />
+</p>
 ![Carousel](https://github.com/xmaddev/carousel/blob/0d29b0f24b4a11f3484a1850203480256e8cd4c9/carousel.png)
 
 Use `carousel` to initializite your carousel param
