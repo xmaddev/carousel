@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Carousel</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="carousel.css">
+		<script src="/carousel.js"></script>
+	</head>
+	<body>
+		<div class="carousel">
+			<div class="wrapper">
+				<div class="wrapper_img"><img src="http://prodimage.images-bn.com/pimages/9780439358071_p0_v4_s1200x630.jpg" alt=""></div>
+				<div class="wrapper_img"><img src="http://prodimage.images-bn.com/pimages/9780439358071_p0_v4_s1200x630.jpg" alt=""></div>
+				<div class="wrapper_img"><img src="http://prodimage.images-bn.com/pimages/9780439358071_p0_v4_s1200x630.jpg" alt=""></div>
+				<div class="wrapper_img"><img src="http://prodimage.images-bn.com/pimages/9780439358071_p0_v4_s1200x630.jpg" alt=""></div>
+				<div class="wrapper_img"><img src="http://prodimage.images-bn.com/pimages/9780439358071_p0_v4_s1200x630.jpg" alt=""></div>
+				<div class="wrapper_img"><img src="http://prodimage.images-bn.com/pimages/9780439358071_p0_v4_s1200x630.jpg" alt=""></div>
+				<div class="wrapper_img"><img src="http://prodimage.images-bn.com/pimages/9780439358071_p0_v4_s1200x630.jpg" alt=""></div>
+				<div class="wrapper_img"><img src="http://prodimage.images-bn.com/pimages/9780439358071_p0_v4_s1200x630.jpg" alt=""></div>
+				<div class="wrapper_img"><img src="http://prodimage.images-bn.com/pimages/9780439358071_p0_v4_s1200x630.jpg" alt=""></div>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	const carousel = (obj) => {
+	// Define variable
+	let startX,diff;
+	let IsMouseDown,carouselOffset=0;
+	const carousel = document.querySelector('.carousel');
+	const wrapper = carousel.querySelector('.wrapper');
+	const wrapperImg = carousel.querySelector('.wrapper_img');
+	const imageWidth = wrapperImg.offsetWidth;
+
+	// Init param from object
+	carousel.style.width = `calc( ${obj.width}px + (${obj.padding}px * ${obj.elements} * 2))`;
+	document.documentElement.style.setProperty("--padding-carousel-wrapper_img",obj.padding);
+
+	// Event for press mouse button
+	carousel.addEventListener('mousedown', (e) => {
+		IsMouseDown = true;
+		startX = (e.clientX - carousel.offsetLeft);
+	});
+
+	// Event for slider right/left
+	carousel.addEventListener('mousemove', (e) => {
+		if(IsMouseDown){
+			const endX = (e.clientX - carousel.offsetLeft);
+			const diff = endX - startX;
+			wrapper.style.left = carouselOffset + diff;
+			wrapper.style.transition = "0s";
+		}
+	});
+
+	// Event for unpress mouse button
+	carousel.addEventListener('mouseup', (e) => {
+		IsMouseDown = false;
+		const endX = (e.clientX - carousel.offsetLeft);
+		const diff = endX - startX;
+		if( diff > 0 && carouselOffset < 0) 
+			carouselOffset += carousel.offsetWidth;
+		else if( diff < 0 && carouselOffset > -(wrapper.clientWidth - (obj.elements * imageWidth))) 
+			carouselOffset -= carousel.offsetWidth;
+		
+		wrapper.style.left = carouselOffset;
+		wrapper.style.transition = "1s";
+	});
+}
+// Init function with param (width = width of slider, elements = count of elem, padding = padding between images)
+carousel({
+	width:		600,
+	elements:	3,
+	padding:	4
+});
+</script>
