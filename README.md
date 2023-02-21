@@ -1,7 +1,7 @@
 # carousel
 ![Carousel](https://github.com/xmaddev/carousel/blob/0d29b0f24b4a11f3484a1850203480256e8cd4c9/carousel.png)
 <div align="center">
-<img src=https://newfastuff.com/wp-content/uploads/2019/05/bW7QXVB.png" >
+<img src=/0d29b0f24b4a11f3484a1850203480256e8cd4c9/carousel.png" >
 <p>Perfectly balanced</p>
 </div>
 								       
