@@ -1,5 +1,7 @@
 :root{
 	--padding-carousel-wrapper_img: 4px;
+	--width-carousel-wrapper_img-img: 0px;
+	--height-carousel-wrapper_img-img: 0px;
 }
 body {
 	margin: 0;
@@ -12,7 +14,7 @@ body {
 .carousel 
 {
 	width: calc( 600px + 4px * 3 * 2 );
-	height:300px;
+	height: var(--height-carousel-wrapper_img-img);
 	overflow: hidden;
 	position: relative;
 }
@@ -26,11 +28,10 @@ body {
 {
 	pointer-events: none;
 	user-select: none;
-	padding: 0 var(--padding-carousel-wrapper_img);
 }
 .carousel .wrapper .wrapper_img img
 {
-
-	width:200px;
-	height:300px;
+	width: var(--width-carousel-wrapper_img-img);
+    padding: 0 var(--padding-carousel-wrapper_img);
+    object-fit: cover;
 }
